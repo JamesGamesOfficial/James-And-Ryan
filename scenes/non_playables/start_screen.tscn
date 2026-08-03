@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://diq0285get7py"]
+
+[ext_resource type="PackedScene" uid="uid://bgc2vftbeea34" path="res://scenes/menus/start_menu.tscn" id="1_jdd23"]
+
+[node name="StartScreen" type="Node2D" unique_id=1936801131]
+
+[node name="StartMenu" parent="." unique_id=1970862850 instance=ExtResource("1_jdd23")]

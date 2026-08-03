@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c1ljpg8y1jl1j"]
+
+[ext_resource type="Script" uid="uid://b7f8p1qw71lwt" path="res://scripts/player.gd" id="1_rp718"]
+[ext_resource type="Texture2D" uid="uid://bpl8tdlwbwmd0" path="res://sprites/others/icon.svg" id="2_76oj4"]
+[ext_resource type="PackedScene" uid="uid://boi0ajy6eoydf" path="res://scenes/menus/pause_menu.tscn" id="3_dyp2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(80, 80)
+
+[node name="Player" type="CharacterBody2D" unique_id=670483687]
+script = ExtResource("1_rp718")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=687604804]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_76oj4")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=380142012]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=723449941]
+position_smoothing_enabled = true
+position_smoothing_speed = 7.5
+
+[node name="PauseMenu" parent="Camera2D" unique_id=716089658 instance=ExtResource("3_dyp2m")]
+visible = false
+offset_left = -576.0
+offset_top = -320.0
+offset_right = -576.0
+offset_bottom = -320.0

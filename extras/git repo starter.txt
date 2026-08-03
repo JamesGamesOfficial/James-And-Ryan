@@ -1,0 +1,9 @@
+git init
+git branch -M main
+
+git add .
+git commit -m "Initial commit - Game"
+git remote add origin https://github.com/JamesGamesOfficial/James-And-Ryan.git
+git push -u origin main
+
+git clone https://github.com/JamesGamesOfficial/James-And-Ryan.git

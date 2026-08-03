@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://boi0ajy6eoydf"]
+
+[ext_resource type="Script" uid="uid://l174ojw13v5s" path="res://scripts/pause_menu.gd" id="1_fwndu"]
+
+[node name="PauseMenu" type="Control" unique_id=716089658]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fwndu")
+
+[node name="Panel" type="Panel" parent="." unique_id=1901920209]
+process_mode = 3
+layout_mode = 0
+offset_left = 384.0
+offset_top = 64.0
+offset_right = 768.0
+offset_bottom = 584.0
+
+[node name="Resume" type="Button" parent="Panel" unique_id=1219483851]
+process_mode = 3
+layout_mode = 0
+offset_left = 88.0
+offset_top = 24.0
+offset_right = 296.0
+offset_bottom = 104.0
+text = "Resume"
+
+[node name="Settings" type="Button" parent="Panel" unique_id=64662259]
+process_mode = 3
+visible = false
+layout_mode = 0
+offset_left = 88.0
+offset_top = 128.0
+offset_right = 296.0
+offset_bottom = 208.0
+text = "Settings"
+
+[node name="Credits" type="Button" parent="Panel" unique_id=1131955384]
+process_mode = 3
+visible = false
+layout_mode = 0
+offset_left = 88.0
+offset_top = 232.0
+offset_right = 296.0
+offset_bottom = 312.0
+text = "Credits"
+
+[node name="Quit" type="Button" parent="Panel" unique_id=2050455974]
+process_mode = 3
+layout_mode = 0
+offset_left = 88.0
+offset_top = 336.0
+offset_right = 296.0
+offset_bottom = 416.0
+text = "Quit"
+
+[connection signal="pressed" from="Panel/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]

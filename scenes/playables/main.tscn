@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://xr1p6np5350q"]
+
+[ext_resource type="Texture2D" uid="uid://bpl8tdlwbwmd0" path="res://sprites/others/icon.svg" id="1_1et62"]
+[ext_resource type="Script" uid="uid://djfgep5xlog7y" path="res://scripts/main.gd" id="1_iphsx"]
+[ext_resource type="PackedScene" uid="uid://c1ljpg8y1jl1j" path="res://scenes/characters/player.tscn" id="2_7ei3m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1152, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(3216, 64)
+
+[node name="Main" type="Node2D" unique_id=111930575]
+script = ExtResource("1_iphsx")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1478405870]
+
+[node name="TextureRect" type="TextureRect" parent="Floor" unique_id=462427002]
+offset_top = 576.0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_1et62")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=653977397]
+position = Vector2(576, 612)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Player" parent="." unique_id=670483687 instance=ExtResource("2_7ei3m")]
+position = Vector2(536, 280)
+
+[node name="Kill Floor" type="StaticBody2D" parent="." unique_id=1081807381]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Floor" unique_id=2124749747]
+position = Vector2(576, 928)
+shape = SubResource("RectangleShape2D_yf5fn")

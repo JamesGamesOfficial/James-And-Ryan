@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var camera = $Camera2D
 
+@onready var spawn_point = $"../SpawnPoint1"
+
 @export var speed: float = 300.0
 @export var jump_velocity: float = -800.0
 
@@ -31,3 +33,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("kill floor"):
 		$Camera2D/GameOver.show()
 		get_tree().paused = true
+	if body.is_in_group("Checkpoint 1"):
+		spawn_point = $"../SpawnPoint2"

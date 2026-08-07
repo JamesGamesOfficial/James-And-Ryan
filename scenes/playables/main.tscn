@@ -7,13 +7,38 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(1152, 72)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
+size = Vector2(384, 72)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(3216, 64)
+size = Vector2(12608, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iphsx"]
+size = Vector2(904, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0u6y"]
+size = Vector2(192, 440)
 
 [node name="Main" type="Node2D" unique_id=111930575]
 script = ExtResource("1_iphsx")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1478405870]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=653977397]
+position = Vector2(576, 612)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor" unique_id=2127022435]
+position = Vector2(1408, 476)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor" unique_id=275937227]
+position = Vector2(1920, 396)
+shape = SubResource("RectangleShape2D_57qmd")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Floor" unique_id=627115636]
+position = Vector2(-96, 1240)
+shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="TextureRect" type="TextureRect" parent="Floor" unique_id=462427002]
 offset_top = 576.0
@@ -22,9 +47,41 @@ offset_bottom = 648.0
 texture = ExtResource("1_1et62")
 expand_mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=653977397]
-position = Vector2(576, 612)
+[node name="TextureRect2" type="TextureRect" parent="Floor" unique_id=671313828]
+offset_left = 1216.0
+offset_top = 440.0
+offset_right = 1600.0
+offset_bottom = 512.0
+texture = ExtResource("1_1et62")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Floor" unique_id=1187417390]
+offset_left = 1728.0
+offset_top = 360.0
+offset_right = 2112.0
+offset_bottom = 432.0
+texture = ExtResource("1_1et62")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Floor" unique_id=573438565]
+offset_left = -672.0
+offset_top = 1200.0
+offset_right = 480.0
+offset_bottom = 1272.0
+texture = ExtResource("1_1et62")
+expand_mode = 1
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Floor" unique_id=4940593]
+position = Vector2(2768, 324)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="TextureRect5" type="TextureRect" parent="Floor" unique_id=1750431364]
+offset_left = 2192.0
+offset_top = 288.0
+offset_right = 3344.0
+offset_bottom = 360.0
+texture = ExtResource("1_1et62")
+expand_mode = 1
 
 [node name="Player" parent="." unique_id=670483687 instance=ExtResource("2_7ei3m")]
 position = Vector2(536, 280)
@@ -34,5 +91,24 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Floor" unique_id=2124749747 groups=["kill floor"]]
-position = Vector2(576, 928)
+position = Vector2(6304, 928)
 shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Kill Floor" unique_id=1852201256 groups=["kill floor"]]
+position = Vector2(-644, 928)
+shape = SubResource("RectangleShape2D_iphsx")
+
+[node name="Checkpoint 1" type="StaticBody2D" parent="." unique_id=1498132745 groups=["Checkpoint 1"]]
+position = Vector2(2752, 224)
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint 1" unique_id=1737978223 groups=["Checkpoint 1"]]
+position = Vector2(32, -124)
+shape = SubResource("RectangleShape2D_d0u6y")
+
+[node name="SpawnPoint1" type="Node2D" parent="." unique_id=704617552]
+position = Vector2(536, 280)
+
+[node name="SpawnPoint2" type="Node2D" parent="." unique_id=653726885]
+position = Vector2(2784, 160)

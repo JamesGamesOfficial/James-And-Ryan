@@ -29,8 +29,10 @@ shape = SubResource("RectangleShape2D_g4v7s")
 [node name="Player" parent="." unique_id=670483687 instance=ExtResource("2_7ei3m")]
 position = Vector2(536, 280)
 
-[node name="Kill Floor" type="StaticBody2D" parent="." unique_id=1081807381]
+[node name="Kill Floor" type="StaticBody2D" parent="." unique_id=1081807381 groups=["kill floor"]]
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Floor" unique_id=2124749747]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Floor" unique_id=2124749747 groups=["kill floor"]]
 position = Vector2(576, 928)
 shape = SubResource("RectangleShape2D_yf5fn")

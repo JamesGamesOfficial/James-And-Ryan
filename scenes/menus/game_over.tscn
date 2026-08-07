@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://b8gbloxuebxpd"]
+
+[ext_resource type="Script" uid="uid://dboa0hjm1sskn" path="res://scripts/game_over.gd" id="1_ujjcl"]
+
+[node name="GameOver" type="Control" unique_id=1153967106]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ujjcl")
+
+[node name="Panel" type="Panel" parent="." unique_id=1771684936]
+process_mode = 3
+layout_mode = 0
+offset_left = 384.0
+offset_top = 64.0
+offset_right = 768.0
+offset_bottom = 584.0
+
+[node name="Respawn" type="Button" parent="Panel" unique_id=1193478347]
+process_mode = 3
+layout_mode = 0
+offset_left = 88.0
+offset_top = 184.0
+offset_right = 296.0
+offset_bottom = 264.0
+text = "Respawn"
+
+[node name="Quit" type="Button" parent="Panel" unique_id=933763141]
+process_mode = 3
+layout_mode = 0
+offset_left = 88.0
+offset_top = 336.0
+offset_right = 296.0
+offset_bottom = 416.0
+text = "Quit"
+
+[node name="Label" type="Label" parent="Panel" unique_id=1414849479]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 320.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 44
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/Respawn" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]

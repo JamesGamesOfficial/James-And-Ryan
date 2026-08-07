@@ -20,6 +20,11 @@ config/icon="res://sprites/others/icon.svg"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+"kill floor"=""
+player=""
+
 [input]
 
 left={

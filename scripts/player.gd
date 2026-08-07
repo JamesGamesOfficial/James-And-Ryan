@@ -25,3 +25,9 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = true
 		$Camera2D/PauseMenu.show()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("kill floor"):
+		$Camera2D/GameOver.show()
+		get_tree().paused = true

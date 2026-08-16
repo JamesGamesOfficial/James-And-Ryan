@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cp2ljtebk4esh"]
+
+[node name="CheckPointUnlocked" type="Panel" unique_id=1328120166]
+anchors_preset = -1
+anchor_right = 0.16700001
+anchor_bottom = 0.09900001
+offset_right = -0.38401794
+offset_bottom = -0.15200806
+
+[node name="Panel" type="Panel" parent="." unique_id=1252559082]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 64.0
+
+[node name="Label" type="Label" parent="." unique_id=142141852]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 181.0
+offset_bottom = 48.0
+text = "Check Point Unlocked!"
+vertical_alignment = 1

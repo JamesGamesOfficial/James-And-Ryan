@@ -1,25 +1,63 @@
 [gd_scene format=3 uid="uid://c1ljpg8y1jl1j"]
 
 [ext_resource type="Script" uid="uid://b7f8p1qw71lwt" path="res://scripts/player.gd" id="1_rp718"]
-[ext_resource type="Texture2D" uid="uid://bpl8tdlwbwmd0" path="res://sprites/others/icon.svg" id="2_76oj4"]
+[ext_resource type="Texture2D" uid="uid://boo4g1f3vx4x4" path="res://sprites/Characters/Temp Player.png" id="2_dyp2m"]
 [ext_resource type="PackedScene" uid="uid://boi0ajy6eoydf" path="res://scenes/menus/pause_menu.tscn" id="3_dyp2m"]
 [ext_resource type="PackedScene" uid="uid://b8gbloxuebxpd" path="res://scenes/menus/game_over.tscn" id="4_dyp2m"]
+[ext_resource type="PackedScene" uid="uid://cp2ljtebk4esh" path="res://scenes/non_playables/checkpoint_unlock.tscn" id="5_atpat"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(80, 80)
+size = Vector2(64, 80)
+
+[sub_resource type="Animation" id="Animation_kqtwu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/CheckPointUnlocked:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-768, -320)]
+}
+
+[sub_resource type="Animation" id="Animation_6eyoc"]
+resource_name = "Unlock_CheckPoint"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D/CheckPointUnlocked:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-768, -320), Vector2(-576, -320), Vector2(-576, -320), Vector2(-768, -320)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eojnx"]
+_data = {
+&"RESET": SubResource("Animation_kqtwu"),
+&"Unlock_CheckPoint": SubResource("Animation_6eyoc")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(96, 96)
+size = Vector2(80, 96)
 
 [node name="Player" type="CharacterBody2D" unique_id=670483687]
 script = ExtResource("1_rp718")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=687604804]
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_76oj4")
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_dyp2m")
 expand_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=380142012]
@@ -27,6 +65,10 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=723449941]
 position_smoothing_speed = 7.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D" unique_id=130127143]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_eojnx")
 
 [node name="PauseMenu" parent="Camera2D" unique_id=716089658 instance=ExtResource("3_dyp2m")]
 visible = false
@@ -40,6 +82,12 @@ visible = false
 offset_left = -576.0
 offset_top = -320.0
 offset_right = -576.0
+offset_bottom = -320.0
+
+[node name="CheckPointUnlocked" parent="Camera2D" unique_id=1328120166 instance=ExtResource("5_atpat")]
+offset_left = -768.0
+offset_top = -320.0
+offset_right = -768.0
 offset_bottom = -320.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=644714805 groups=["player"]]

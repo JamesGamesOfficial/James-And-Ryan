@@ -52,10 +52,19 @@ text = "Credits"
 process_mode = 3
 layout_mode = 0
 offset_left = 88.0
-offset_top = 336.0
+offset_top = 344.0
 offset_right = 296.0
-offset_bottom = 416.0
+offset_bottom = 424.0
 text = "Quit"
+
+[node name="Restart" type="Button" parent="Panel" unique_id=146490505]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 152.0
+offset_right = 296.0
+offset_bottom = 232.0
+text = "Restart"
 
 [connection signal="pressed" from="Panel/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/Restart" to="." method="_on_restart_pressed"]

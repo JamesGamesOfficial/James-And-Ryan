@@ -3,9 +3,12 @@ extends CharacterBody2D
 @onready var camera = $Camera2D
 
 @onready var spawn_point = $"../SpawnPoint1"
+@onready var sprite = $TextureRect
 
 @export var speed: float = 300.0
 @export var jump_velocity: float = -800.0
+
+var checkpoint_test_unlocked = false
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -19,6 +22,10 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * speed
+		if direction > 0:
+			sprite.flip_h = false
+		elif direction < 0:
+			sprite.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 	move_and_slide()
@@ -35,3 +42,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		get_tree().paused = true
 	if body.is_in_group("Checkpoint 1"):
 		spawn_point = $"../SpawnPoint2"
+		if checkpoint_test_unlocked == false:
+			$Camera2D/AnimationPlayer.play("Unlock_CheckPoint")
+		checkpoint_test_unlocked = true
+		

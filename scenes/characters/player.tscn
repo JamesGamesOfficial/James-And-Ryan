@@ -1,10 +1,49 @@
 [gd_scene format=3 uid="uid://c1ljpg8y1jl1j"]
 
 [ext_resource type="Script" uid="uid://b7f8p1qw71lwt" path="res://scripts/player.gd" id="1_rp718"]
-[ext_resource type="Texture2D" uid="uid://boo4g1f3vx4x4" path="res://sprites/Characters/Temp Player.png" id="2_dyp2m"]
+[ext_resource type="Texture2D" uid="uid://cop3brqrx1h3k" path="res://sprites/Characters/Player Jump3.png" id="2_7vyk4"]
+[ext_resource type="Texture2D" uid="uid://b2c5mj5k840yi" path="res://sprites/Characters/player1.png" id="2_kqtwu"]
+[ext_resource type="Texture2D" uid="uid://3uu2kyy5gr8v" path="res://sprites/Characters/Player Jump2.png" id="3_2l4js"]
+[ext_resource type="Texture2D" uid="uid://bwfg77r3t08p0" path="res://sprites/Characters/player2.png" id="3_6eyoc"]
 [ext_resource type="PackedScene" uid="uid://boi0ajy6eoydf" path="res://scenes/menus/pause_menu.tscn" id="3_dyp2m"]
 [ext_resource type="PackedScene" uid="uid://b8gbloxuebxpd" path="res://scenes/menus/game_over.tscn" id="4_dyp2m"]
+[ext_resource type="Texture2D" uid="uid://wkk3yevjg7t6" path="res://sprites/Characters/Player Jump5.png" id="4_jk2m4"]
 [ext_resource type="PackedScene" uid="uid://cp2ljtebk4esh" path="res://scenes/non_playables/checkpoint_unlock.tscn" id="5_atpat"]
+[ext_resource type="Texture2D" uid="uid://0hfhyxwgtb13" path="res://sprites/Characters/Player Jump4.png" id="5_xhtjm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7vyk4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2l4js")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jk2m4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xhtjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7vyk4")
+}],
+"loop": 1,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kqtwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6eyoc")
+}],
+"loop": 1,
+"name": &"Walk",
+"speed": 7.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(64, 80)
@@ -52,15 +91,12 @@ size = Vector2(80, 96)
 [node name="Player" type="CharacterBody2D" unique_id=670483687]
 script = ExtResource("1_rp718")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=687604804]
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
-texture = ExtResource("2_dyp2m")
-expand_mode = 1
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=916706000]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"Jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=380142012]
+visible = false
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=723449941]
@@ -91,6 +127,7 @@ offset_right = -768.0
 offset_bottom = -320.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=644714805 groups=["player"]]
+visible = false
 collision_layer = 6
 collision_mask = 6
 
